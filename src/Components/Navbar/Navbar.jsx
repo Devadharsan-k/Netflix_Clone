@@ -43,11 +43,6 @@ const Navbar = () => {
       <div className={styles.nav_content}>
         <img className={styles.logo} src={Logo} alt="Logo" />
         <div className={styles.right_nav}>
-          <img
-            className={styles.sub_logo}
-            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-            alt="Subscription"
-          />
           <button className={styles.signOut} onClick={() => auth.signOut()}>
             Sign Out
           </button>
