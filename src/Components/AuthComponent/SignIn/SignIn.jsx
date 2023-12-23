@@ -38,7 +38,7 @@ const SignIn = () => {
       .then((authUser) => {
         emailRef.current.value = "";
         passRef.current.value = "";
-        setLoading(false); // Set loading to false on successful sign in
+        setLoading(false); 
       })
       .catch((error) => {
         setLoading(false); 
