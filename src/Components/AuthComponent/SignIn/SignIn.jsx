@@ -10,6 +10,7 @@ import {
 
 const SignIn = () => {
   const [isModalOpen, setModalOpen] = useState(true);
+  const [isLoading, setLoading] = useState(false); 
   const emailRef = useRef();
   const passRef = useRef();
 
@@ -28,21 +29,23 @@ const SignIn = () => {
         alert(error.message);
       });
   };
+
   const signIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(
-      auth,
-      emailRef.current.value,
-      passRef.current.value
-    )
+    setLoading(true); 
+
+    signInWithEmailAndPassword(auth, emailRef.current.value, passRef.current.value)
       .then((authUser) => {
         emailRef.current.value = "";
         passRef.current.value = "";
+        setLoading(false); // Set loading to false on successful sign in
       })
       .catch((error) => {
+        setLoading(false); 
         alert(error.message);
       });
   };
+
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -72,8 +75,8 @@ const SignIn = () => {
                 ref={passRef}
               />
             </div>
-            <button className={styles.signIn} onClick={signIn}>
-              Sign In
+            <button className={styles.signIn} onClick={signIn} disabled={isLoading}>
+              {isLoading ? 'Signing In...' : 'Sign In'}
             </button>
           </form>
           <p className={styles.des}>
