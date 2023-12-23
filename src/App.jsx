@@ -3,7 +3,7 @@ import "./index.css";
 import HomeScreen from "./Components/HomeScreen/HomeScreen";
 import AuthenticationPage from "./Components/AuthComponent/AuthenticationPage/AuthenticationPage";
 import SignIn from "./Components/AuthComponent/SignIn/SignIn";
-import { useEffect, useState } from "react"; // Import useState
+import { useEffect, useState } from "react"; 
 import { auth } from "./Firebase/Firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { userSlice } from "../src/Store/userSlice";
@@ -27,11 +27,11 @@ function App() {
           })
         );
         setTimeout(() => {
-          setLoading(false); // Set loading to false after 5 seconds
+          setLoading(false); 
           navigate("/homeScreen");
         }, 5000);
       } else {
-        setLoading(false); // Set loading to false if not authenticated
+        setLoading(false); 
         navigate("/");
         dispatch(logOut());
       }
