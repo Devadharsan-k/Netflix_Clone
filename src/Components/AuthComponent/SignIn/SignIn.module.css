@@ -1,0 +1,82 @@
+.header {
+  position: absolute;
+  top: 0;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-inline: 40px;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.brandLogo {
+  height: 70px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg_clr {
+  position: absolute;
+  display: grid;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 50px;
+  row-gap: 25px;
+  margin-block: 15px;
+}
+
+.bg_clr > form > h2 {
+  color: white;
+}
+
+.input {
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 300px;
+  font-size: 16px;
+}
+
+.signIn {
+  background-color: #eb0a0ae1;
+  padding-inline: 28px;
+  padding-block: 8px;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.signIn:hover {
+  background-color: #dc2626;
+}
+
+.des {
+  font-size: 1rem;
+  color: #adb5bd;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signUp {
+  color: red;
+}
+
+.signUp:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

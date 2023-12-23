@@ -1,0 +1,60 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  height: 60px;
+  width: 100%;
+  z-index: 1;
+  transition: transform 0.4s ease-in-out;
+}
+
+.scrolled {
+  background-color: black;
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.nav_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 30px;
+}
+
+.logo {
+  height: 60px;
+  width: 90px;
+  cursor: pointer;
+}
+
+.right_nav {
+  display: flex;
+  gap: 40px;
+}
+
+.sub_logo {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.signOut {
+  background-color: #eb0a0ae1;
+  padding-inline: 18px;
+  padding-block: 8px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.signOut:hover {
+  background-color: #dc2626;
+}
