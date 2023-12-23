@@ -3,7 +3,7 @@ import "./index.css";
 import HomeScreen from "./Components/HomeScreen/HomeScreen";
 import AuthenticationPage from "./Components/AuthComponent/AuthenticationPage/AuthenticationPage";
 import SignIn from "./Components/AuthComponent/SignIn/SignIn";
-import { useEffect } from "react";
+import { useEffect, useState } from "react"; // Import useState
 import { auth } from "./Firebase/Firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { userSlice } from "../src/Store/userSlice";
@@ -14,6 +14,9 @@ function App() {
   const { logOut, logIn } = userSlice.actions;
   const navigate = useNavigate();
 
+  // Add loading state
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const unSubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
@@ -23,8 +26,12 @@ function App() {
             email: userAuth.email,
           })
         );
-        navigate("/homeScreen");
+        setTimeout(() => {
+          setLoading(false); // Set loading to false after 5 seconds
+          navigate("/homeScreen");
+        }, 5000);
       } else {
+        setLoading(false); // Set loading to false if not authenticated
         navigate("/");
         dispatch(logOut());
       }
@@ -33,13 +40,17 @@ function App() {
 
   return (
     <div className="app">
-      <>
+      {loading ? ( // Render loading indicator during the 5 seconds
+        <div className="loading-overlay">
+          <div className="loader"></div>
+        </div>
+      ) : (
         <Routes>
           <Route path="/" element={<AuthenticationPage />} />
           <Route path="/homeScreen" element={<HomeScreen />} />
           <Route path="/signIn" element={<SignIn />} />
         </Routes>
-      </>
+      )}
     </div>
   );
 }
