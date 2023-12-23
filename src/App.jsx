@@ -29,7 +29,7 @@ function App() {
         setTimeout(() => {
           setLoading(false); 
           navigate("/homeScreen");
-        }, 9000);
+        }, 5000);
       } else {
         setLoading(false); 
         navigate("/");
